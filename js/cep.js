@@ -1,5 +1,6 @@
 const configs = {
-    method: 'GET'
+    method: 'GET',
+    mode: 'cors'
 }
 
 const results = document.getElementById('results')
