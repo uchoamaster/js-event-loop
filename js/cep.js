@@ -15,6 +15,8 @@ const searchCep = (event) => {
         console.log(data)
 
         if(data.status === 0) throw data.message
+
+        showResults(data)
     })
     .catch(error => {
         console.log(error)
@@ -24,4 +26,23 @@ const searchCep = (event) => {
     if( event.preventDefault) event.preventDefault()
     if( event.preventValue) event.preventValue()
     return false
+}
+
+const results = document.getElementById('results')
+const showResults = (address) => {
+    results.style.display = 'block'
+
+    const html = 
+    
+    `
+    <ul class="list-group">
+    <li class="list-group-item"><strong>Cep:&nbsp;</strong>${address.code} </li>
+    <li class="list-group-item"><strong>Cidade:&nbsp;</strong>${address.city}  </li>
+    <li class="list-group-item"><strong>Estado:&nbsp;</strong>${address.state}  </li>
+    <li class="list-group-item"><strong>Rua:&nbsp;</strong>${address.district}  </li>
+    </ul>
+    
+    `
+    results.innerHTML = html
+   
 }
